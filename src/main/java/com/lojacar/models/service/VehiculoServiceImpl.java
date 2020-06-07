@@ -30,4 +30,12 @@ public class VehiculoServiceImpl implements IVehiculoService {
 		return vehiculoDao.findById(id).orElse(null);
 	}
 
+	@Override
+	public Vehiculos saveVehiculo(Vehiculos vehiculos) {
+		// TODO Auto-generated method stub
+		
+		return vehiculoDao.save(vehiculos);
+	}
+	
+
 }

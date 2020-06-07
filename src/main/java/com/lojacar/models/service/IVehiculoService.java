@@ -8,5 +8,6 @@ public interface IVehiculoService {
 	
 	public List<Vehiculos> findAll();
 	public Vehiculos findById(Long id);
+	public Vehiculos saveVehiculo(Vehiculos vehiculos);
 
 }

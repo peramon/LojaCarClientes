@@ -37,7 +37,7 @@ public class ClienteController {
 	@GetMapping("/clientes")
 	@ResponseStatus(HttpStatus.OK)
 	public List<Clientes> getAll(){
-		return clienteService.findAll();
+		return clienteService.findAll2();
 	}
 	
 	@GetMapping("/cliente/{id}")
