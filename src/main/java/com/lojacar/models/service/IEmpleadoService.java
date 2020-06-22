@@ -2,12 +2,12 @@ package com.lojacar.models.service;
 
 import java.util.List;
 
-import com.lojacar.models.entity.Empleados;
+import com.lojacar.models.entity.Empleado;
 
 public interface IEmpleadoService {
 	
-	public List<Empleados> findAll();
-	public Empleados findById(Long id);
-	public Empleados save(Empleados empleado);
+	public List<Empleado> findAll();
+	public Empleado findById(Long id);
+	public Empleado save(Empleado empleado);
 
 }

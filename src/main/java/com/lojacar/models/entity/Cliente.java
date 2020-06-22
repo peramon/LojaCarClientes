@@ -24,7 +24,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "clientes")
-public class Clientes implements Serializable {
+public class Cliente implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,24 +37,24 @@ public class Clientes implements Serializable {
 	public String profesion;
 	public String detalle;
 
-	@OneToOne
+	/*@OneToOne
 	@JoinColumn(name = "empleado_id", unique = false)
-	private Empleados empleados;
+	private Empleado empleados;*/
 
-	@JoinTable(name = "clientes_vehiculos", 
+	/*@JoinTable(name = "clientes_vehiculos", 
 			joinColumns = @JoinColumn(name = "cliente_id", nullable = false), 
 			inverseJoinColumns = @JoinColumn(name = "vehiculo_id", nullable = false))
 	@ManyToMany()
-	private List<Vehiculos> vehiculos;
+	private List<Producto> vehiculos;*/
 
-	@Column(name = "create_at")
+	@Column(name = "fecha_cre")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date createAt;
+	private Date fecha_cre;
 
 	@PrePersist
 	public void prePersist() {
-		createAt = new Date();
+		fecha_cre = new Date();
 	}
 
 	public Long getId() {
@@ -121,28 +121,28 @@ public class Clientes implements Serializable {
 		this.detalle = detalle;
 	}
 
-	public Empleados getEmpleados() {
+/*	public Empleado getEmpleados() {
 		return empleados;
 	}
 
-	public void setEmpleados(Empleados empleados) {
+	public void setEmpleados(Empleado empleados) {
 		this.empleados = empleados;
-	}
+	}*/
 
-	public List<Vehiculos> getVehiculos() {
+	/*public List<Producto> getVehiculos() {
 		return vehiculos;
 	}
 
-	public void setVehiculos(List<Vehiculos> vehiculos) {
+	public void setVehiculos(List<Producto> vehiculos) {
 		this.vehiculos = vehiculos;
-	}
+	}*/
 
 	public Date getCreateAt() {
-		return createAt;
+		return fecha_cre;
 	}
 
 	public void setCreateAt(Date createAt) {
-		this.createAt = createAt;
+		this.fecha_cre = createAt;
 	}
 
 	/**

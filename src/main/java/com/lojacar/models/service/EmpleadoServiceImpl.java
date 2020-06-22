@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lojacar.models.dao.EmpleadoDao;
-import com.lojacar.models.entity.Empleados;
+import com.lojacar.models.entity.Empleado;
 
 @Service
 public class EmpleadoServiceImpl implements IEmpleadoService {
@@ -17,20 +17,20 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 	
 	@Override
 	@Transactional(readOnly = true)
-	public List<Empleados> findAll() {
+	public List<Empleado> findAll() {
 		// TODO Auto-generated method stub
-		return (List<Empleados>) empleadoDao.findAll();
+		return (List<Empleado>) empleadoDao.findAll();
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Empleados findById(Long id) {
+	public Empleado findById(Long id) {
 		// TODO Auto-generated method stub
 		return empleadoDao.findById(id).orElse(null);
 	}
 
 	@Override
-	public Empleados save(Empleados empleado) {
+	public Empleado save(Empleado empleado) {
 		// TODO Auto-generated method stub
 		return empleadoDao.save(empleado);
 	}

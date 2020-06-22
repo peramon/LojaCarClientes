@@ -6,32 +6,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.lojacar.models.dao.VehiculoDao;
-import com.lojacar.models.entity.Vehiculos;
+import com.lojacar.models.dao.ProductoDao;
+import com.lojacar.models.entity.Producto;
 
 @Service
 public class VehiculoServiceImpl implements IVehiculoService {
 	
 	@Autowired
-	private VehiculoDao vehiculoDao;
+	private ProductoDao vehiculoDao;
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<Vehiculos> findAll() {
+	public List<Producto> findAll() {
 		// TODO Auto-generated method stub
-		return (List<Vehiculos>) vehiculoDao.findAll();
+		return (List<Producto>) vehiculoDao.findAll();
 		
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Vehiculos findById(Long id) {
+	public Producto findById(Long id) {
 		// TODO Auto-generated method stub
 		return vehiculoDao.findById(id).orElse(null);
 	}
 
 	@Override
-	public Vehiculos saveVehiculo(Vehiculos vehiculos) {
+	public Producto saveVehiculo(Producto vehiculos) {
 		// TODO Auto-generated method stub
 		
 		return vehiculoDao.save(vehiculos);

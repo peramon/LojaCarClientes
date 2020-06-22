@@ -2,11 +2,11 @@ package com.lojacar.models.service;
 
 import java.util.List;
 
-import com.lojacar.models.entity.Usuarios;
+import com.lojacar.models.entity.Pedido;
 
 public interface IUsuarioService {
-	public List<Usuarios> findAll();
-	public Usuarios finById(Long id);
-	public Usuarios save(Usuarios usuario);
+	public List<Pedido> findAll();
+	public Pedido finById(Long id);
+	public Pedido save(Pedido usuario);
 	public void deleteById( Long id);
 }

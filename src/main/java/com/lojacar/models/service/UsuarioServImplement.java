@@ -7,31 +7,31 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.lojacar.models.dao.UsuarioDao;
-import com.lojacar.models.entity.Usuarios;
+import com.lojacar.models.dao.PedidoDao;
+import com.lojacar.models.entity.Pedido;
 
 @Service
 public class UsuarioServImplement implements IUsuarioService {
 
 	
     @Autowired
-    private UsuarioDao usuarioDao;
+    private PedidoDao usuarioDao;
 	@Override
 	@Transactional(readOnly = true)
-	public List<Usuarios> findAll() {
+	public List<Pedido> findAll() {
 		
-		return (List<Usuarios>) usuarioDao.findAll();
+		return (List<Pedido>) usuarioDao.findAll();
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Usuarios finById(Long id) {
+	public Pedido finById(Long id) {
 		
 		return usuarioDao.findById(id).orElse(null);
 	}
 
 	@Override
-	public Usuarios save(Usuarios usuario) {
+	public Pedido save(Pedido usuario) {
 		
 		return usuarioDao.save(usuario);
 	}

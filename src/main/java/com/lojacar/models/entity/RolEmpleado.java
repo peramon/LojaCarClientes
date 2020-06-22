@@ -16,15 +16,13 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "empleados")
-public class Empleados implements Serializable {
+@Table(name = "roles_empleado")
+public class RolEmpleado implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
-	public String nombres;
-	public String apellidos;
-	public String rol;
+	public String nombre_rol;
 
 	@Column(name = "create_at")
 	@Temporal(TemporalType.DATE)
@@ -44,28 +42,12 @@ public class Empleados implements Serializable {
 		this.id = id;
 	}
 
-	public String getNombres() {
-		return nombres;
+	public String getNombre_rol() {
+		return nombre_rol;
 	}
 
-	public void setNombres(String nombres) {
-		this.nombres = nombres;
-	}
-
-	public String getApellidos() {
-		return apellidos;
-	}
-
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
-	}
-
-	public String getRol() {
-		return rol;
-	}
-
-	public void setRol(String rol) {
-		this.rol = rol;
+	public void setNombre_rol(String nombre_rol) {
+		this.nombre_rol = nombre_rol;
 	}
 
 	public Date getCreateAt() {

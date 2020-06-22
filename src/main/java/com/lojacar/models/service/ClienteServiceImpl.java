@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lojacar.models.dao.ClienteDao;
-import com.lojacar.models.entity.Clientes;
+import com.lojacar.models.entity.Cliente;
 
 @Service
 public class ClienteServiceImpl implements IClienteService {
@@ -17,20 +17,20 @@ public class ClienteServiceImpl implements IClienteService {
 	
 	@Override
 	@Transactional(readOnly = true)
-	public List<Clientes> findAll2() {
+	public List<Cliente> findAll2() {
 		// TODO Auto-generated method stub
-		return (List<Clientes>) clienteDao.findAll(); // Clase propia de dao
+		return (List<Cliente>) clienteDao.findAll(); // Clase propia de dao
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Clientes findByiD(Long id) {
+	public Cliente findByiD(Long id) {
 		// TODO Auto-generated method stub
 		return clienteDao.findById(id).orElse(null);
 	}
 
 	@Override
-	public Clientes save(Clientes cliente) {
+	public Cliente save(Cliente cliente) {
 		// TODO Auto-generated method stub
 		return clienteDao.save(cliente);
 	}

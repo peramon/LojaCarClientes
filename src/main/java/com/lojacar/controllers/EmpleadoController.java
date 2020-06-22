@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lojacar.models.entity.Empleados;
+import com.lojacar.models.entity.Empleado;
 import com.lojacar.models.service.IEmpleadoService;
 
 @RestController
@@ -27,19 +27,19 @@ public class EmpleadoController {
 	
 	@GetMapping("/empleados")
 	@ResponseStatus(HttpStatus.OK)
-	public List<Empleados> getAll(){
+	public List<Empleado> getAll(){
 		return empleadoService.findAll();
 	}
 	
 	@GetMapping("/empleado/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public Empleados getById(@PathVariable Long id) {
+	public Empleado getById(@PathVariable Long id) {
 		return empleadoService.findById(id);
 	}
 	
 	@PostMapping("/empleado")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Empleados save(@RequestBody Empleados empleado) {
+	public Empleado save(@RequestBody Empleado empleado) {
 		return empleadoService.save(empleado);
 	}
 	

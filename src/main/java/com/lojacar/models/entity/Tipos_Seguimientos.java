@@ -2,14 +2,12 @@ package com.lojacar.models.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -18,28 +16,23 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "vehiculos")
-public class Vehiculos implements Serializable {
+@Table(name = "tipos_seguimiento")
+public class Tipos_Seguimientos implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
+	public String nombre_seguimiento;
 
-	public String marca;
-	public String modelo;
-	public String anio;
 
-	@Column(name = "create_at")
+	@Column(name = "fecha_cre")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date createAt;
-	
-	@ManyToMany(mappedBy = "vehiculos")
-    private List<Clientes> clientes;
-	
+	private Date fecha_cre;
+
 	@PrePersist
 	public void prePersist() {
-		createAt = new Date();
+		fecha_cre = new Date();
 	}
 
 	public Long getId() {
@@ -50,41 +43,30 @@ public class Vehiculos implements Serializable {
 		this.id = id;
 	}
 
-	public String getMarca() {
-		return marca;
+	public String getDescripcion() {
+		return nombre_seguimiento;
 	}
 
-	public void setMarca(String marca) {
-		this.marca = marca;
+	public void setDescripcion(String descripcion) {
+		this.nombre_seguimiento = descripcion;
 	}
 
-	public String getModelo() {
-		return modelo;
-	}
-
-	public void setModelo(String modelo) {
-		this.modelo = modelo;
-	}
-
-	public String getAnio() {
-		return anio;
-	}
-
-	public void setAnio(String anio) {
-		this.anio = anio;
-	}
 
 	public Date getCreateAt() {
-		return createAt;
+		return fecha_cre;
 	}
 
 	public void setCreateAt(Date createAt) {
-		this.createAt = createAt;
+		this.fecha_cre = createAt;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -4462746427748147726L;
+	private static final long serialVersionUID = -3316127915915059537L;
 
 }

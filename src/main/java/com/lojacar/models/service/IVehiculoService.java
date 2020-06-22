@@ -2,12 +2,12 @@ package com.lojacar.models.service;
 
 import java.util.List;
 
-import com.lojacar.models.entity.Vehiculos;
+import com.lojacar.models.entity.Producto;
 
 public interface IVehiculoService {
 	
-	public List<Vehiculos> findAll();
-	public Vehiculos findById(Long id);
-	public Vehiculos saveVehiculo(Vehiculos vehiculos);
+	public List<Producto> findAll();
+	public Producto findById(Long id);
+	public Producto saveVehiculo(Producto vehiculos);
 
 }

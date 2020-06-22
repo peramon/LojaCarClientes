@@ -12,29 +12,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lojacar.models.entity.Usuarios;
+import com.lojacar.models.entity.Pedido;
 import com.lojacar.models.service.IUsuarioService;
 
 @RestController
-public class UsuarioController {
+public class PedidoController {
 
 	@Autowired
 	private IUsuarioService usuuarioService;
 	
 	@GetMapping("/listar")
-	public List<Usuarios> Listar(){
+	public List<Pedido> Listar(){
 		return usuuarioService.findAll();
 	}
 	
 	@GetMapping("/ver/{id}")
-	public Usuarios detalle(@PathVariable Long id) {
-		Usuarios usuario = usuuarioService.finById(id);
+	public Pedido detalle(@PathVariable Long id) {
+		Pedido usuario = usuuarioService.finById(id);
 		return usuario;
 	}
 	
 	@PostMapping("/crear")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Usuarios crear(@RequestBody Usuarios usuario) {
+	public Pedido crear(@RequestBody Pedido usuario) {
 		return usuuarioService.save(usuario);
 	}
 	@DeleteMapping("/eliminar/{id}")

@@ -14,32 +14,32 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lojacar.models.entity.Vehiculos;
+import com.lojacar.models.entity.Producto;
 import com.lojacar.models.service.IVehiculoService;
 
 @RestController
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 @RequestMapping("/lojacar/v1")
-public class VehiculoController {
+public class ProductoController {
 
 	@Autowired
 	IVehiculoService vehiculoService;
 	
 	@GetMapping("/vehiculos")
 	@ResponseStatus(HttpStatus.OK)
-	public List<Vehiculos> getAll(){
+	public List<Producto> getAll(){
 		return vehiculoService.findAll();
 	}
 	
 	@GetMapping("/vehiculo/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public Vehiculos getById(@PathVariable Long id) {
+	public Producto getById(@PathVariable Long id) {
 		return vehiculoService.findById(id);
 	}
 	
 	@PostMapping("/vehiculos")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Vehiculos createVehiculo(@RequestBody Vehiculos vehiculos) {
+	public Producto createVehiculo(@RequestBody Producto vehiculos) {
 		return vehiculoService.saveVehiculo(vehiculos);
 	}
 	
