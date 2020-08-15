@@ -2,12 +2,17 @@ package com.lojacar.models.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -16,20 +21,23 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "tipos_seguimiento")
-public class Tipos_Seguimientos implements Serializable {
+@Table(name = "Actividades")
+public class Actividad implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
-	public String nombre_seguimiento;
+	public String nombre;
 
 
 	@Column(name = "fecha_cre")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fecha_cre;
-
+		
+	@ManyToMany(mappedBy = "Actividad")
+    private Set<Empleado> Empleado;
+	
 	@PrePersist
 	public void prePersist() {
 		fecha_cre = new Date();
@@ -43,14 +51,13 @@ public class Tipos_Seguimientos implements Serializable {
 		this.id = id;
 	}
 
-	public String getDescripcion() {
-		return nombre_seguimiento;
+	public String getNombres() {
+		return nombre;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.nombre_seguimiento = descripcion;
+	public void setNombres(String nombres) {
+		this.nombre = nombres;
 	}
-
 
 	public Date getCreateAt() {
 		return fecha_cre;

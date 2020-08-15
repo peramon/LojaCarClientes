@@ -2,12 +2,18 @@ package com.lojacar.models.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,6 +34,23 @@ public class Pedido  implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fecha_cre;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idProducto")
+	private Producto producto;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idCliente")
+	private Cliente cliente;
+	
+	@ManyToMany(mappedBy = "Pedido")
+    private Set<Empleado> Empleado;
+
+	
+	
+	@OneToOne
+	@JoinColumn(name = "idEstadoPedido")
+	private EstadoPedido estadoPedido;
 	
 	public Long getId() {
 		return id;

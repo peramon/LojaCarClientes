@@ -1,13 +1,23 @@
 package com.lojacar.models.entity;
 
+
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -24,13 +34,40 @@ public class Empleado implements Serializable {
 	public Long id;
 	public String nombres;
 	public String apellidos;
-
+	
 
 	@Column(name = "create_at")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createAt;
 
+	/*@OneToOne
+	@JoinColumn(name = "idRolEmpleado")
+	private RolEmpleado rolEmpleado;*/
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idRolEmpleado")
+	private RolEmpleado rolEmpleado;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idArea")
+	private Area areaEmpleado;
+	
+	@OneToMany(mappedBy = "empleadoM", cascade = CascadeType.ALL)
+	private List<Mantenimiento> empleadoMList;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable
+    private Set<Pedido> Pedido;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable
+    private Set<Actividad> Actividad;
+	
+	
+	@OneToMany(mappedBy = "empleadoS", cascade = CascadeType.ALL)
+	private List<Seguimiento> empleadoSList;
+	
 	@PrePersist
 	public void prePersist() {
 		createAt = new Date();

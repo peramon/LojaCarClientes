@@ -2,12 +2,18 @@ package com.lojacar.models.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -30,6 +36,13 @@ public class Area implements Serializable {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fecha_cre;
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idConsecionario")
+	private Consecionario consecionario;
+	
+	@OneToMany(mappedBy = "areaEmpleado", cascade = CascadeType.ALL)
+	private List<Empleado> areaEmpleadoList;
+	
 	@PrePersist
 	public void prePersist() {
 		fecha_cre = new Date();

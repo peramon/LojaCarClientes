@@ -22,7 +22,7 @@ import com.lojacar.models.service.IVehiculoService;
 
 @RestController
 // @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
-@RequestMapping("/lojacar/v1")
+@RequestMapping("/lojacar")
 public class ClienteController {
 
 	@Autowired

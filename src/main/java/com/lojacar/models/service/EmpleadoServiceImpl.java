@@ -34,5 +34,20 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 		// TODO Auto-generated method stub
 		return empleadoDao.save(empleado);
 	}
+	
+	@Override
+	public Empleado updateEmpleado(Long id, Empleado empleado) {
+		Empleado empleadoActual =  findById(id);
+		empleadoActual.setApellidos(empleado.getApellidos());
+		empleadoActual.setNombres(empleado.getNombres());
+		return empleadoDao.save(empleadoActual);
+	}
+	
+	@Override
+	public void deleteEmpleado(Long id) {
+		// TODO Auto-generated method stub
+		Empleado empleado =  findById(id);
+		empleadoDao.delete(empleado);
+	}
 
 }

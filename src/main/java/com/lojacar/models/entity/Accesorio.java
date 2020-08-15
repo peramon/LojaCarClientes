@@ -4,12 +4,15 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -24,7 +27,6 @@ public class Accesorio implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
-
 	public String nombre;
 	public String modelo;
 
@@ -34,8 +36,11 @@ public class Accesorio implements Serializable {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fecha_cre;
 	
-	/*@ManyToMany(mappedBy = "vehiculos")
-    private List<Cliente> clientes;*/
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Caracteristica> caracteristica;
+	
+	@OneToMany(mappedBy = "accesorio", cascade = CascadeType.ALL)
+	private List<Producto> 	accesorioList;
 	
 	@PrePersist
 	public void prePersist() {

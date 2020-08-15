@@ -4,12 +4,13 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -33,8 +34,8 @@ public class Marca implements Serializable {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fecha_cre;
 	
-	/*@ManyToMany(mappedBy = "vehiculos")
-    private List<Cliente> clientes;*/
+	@OneToMany(mappedBy = "marca", cascade = CascadeType.ALL)
+	private List<Modelo> marcaList;
 	
 	@PrePersist
 	public void prePersist() {

@@ -4,12 +4,17 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -33,8 +38,21 @@ public class Producto implements Serializable {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fecha_cre;
 	
-	/*@ManyToMany(mappedBy = "vehiculos")
-    private List<Cliente> clientes;*/
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idVehiculo")
+	private Vehiculo vehiculo;
+	
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idAccesorio")
+	private Accesorio accesorio;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idConsecionario")
+	private Consecionario consecionarioPro;
+	
+	@OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
+	private List<Pedido> 	productoList;
 	
 	@PrePersist
 	public void prePersist() {
