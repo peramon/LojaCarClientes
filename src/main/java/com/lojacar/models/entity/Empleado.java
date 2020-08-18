@@ -35,6 +35,7 @@ public class Empleado implements Serializable {
 	public String nombres;
 	public String apellidos;
 	
+	
 
 	@Column(name = "create_at")
 	@Temporal(TemporalType.DATE)

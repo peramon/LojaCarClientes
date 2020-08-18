@@ -20,7 +20,7 @@ import com.lojacar.models.entity.Empleado;
 import com.lojacar.models.service.IEmpleadoService;
 
 @RestController
-// @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 @RequestMapping("/lojacar")
 public class EmpleadoController {
 

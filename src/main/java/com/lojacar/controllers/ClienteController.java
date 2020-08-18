@@ -21,7 +21,7 @@ import com.lojacar.models.service.IEmpleadoService;
 import com.lojacar.models.service.IVehiculoService;
 
 @RestController
-// @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 @RequestMapping("/lojacar")
 public class ClienteController {
 

@@ -6,13 +6,18 @@ INSERT INTO empleados (id, apellidos, create_at, nombres) VALUES (1, 'Jaramillo'
 INSERT INTO empleados (id, apellidos, create_at, nombres) VALUES (2, 'Valarezo', NULL, 'Valeria');
 INSERT INTO empleados (id, apellidos, create_at, nombres) VALUES (3, 'Rodriguez', NULL, 'José');
 INSERT INTO empleados (id, apellidos, create_at, nombres) VALUES (4, 'Carrión', NULL, 'Fernando');
+INSERT INTO empleados (id, apellidos, create_at, nombres) VALUES (5, 'Ramos', NULL, 'Aranda');
+INSERT INTO empleados (id, apellidos, create_at, nombres) VALUES (6, 'Carrasco', NULL, 'Julio');
 
-INSERT INTO vehiculos (id, anio, create_at, descripcion) VALUES (1, '2020', NULL, 'Este carro es un Nissan'); 
-INSERT INTO vehiculos (id, anio, create_at, descripcion) VALUES (2, '2020', NULL, 'Nissan');
-INSERT INTO vehiculos (id, anio, create_at, descripcion) VALUES (3, '2020', NULL, 'Carrito Nissan');
+INSERT INTO vehiculos (id, anio, create_at, descripcion) VALUES (1, '2020', NULL, 'Nissan es una de las marcas japonesas con más arraigo en España y cuenta con una fábrica en Barcelona en la que se producen modelos como el  Nissan e-NV200, cien por cien eléctrico. '); 
+INSERT INTO vehiculos (id, anio, create_at, descripcion) VALUES (2, '2020', NULL, 'Versátil y dinámico. Todo lo que a ti te define es parte del diseño del nuevo Chevrolet Beat: líneas vanguardistas que seducen, en cualquier color, llenando cada kilómetro de estilo.');
+INSERT INTO vehiculos (id, anio, create_at, descripcion) VALUES (3, '2020', NULL, 'El Mazda CX-30 es un SUV compacto que se ubica en la gama nipona entre el CX-3 y el CX-5. Su estética adopta el lenguaje de diseño estrenado por la cuarta generación del Mazda 3. Mide 4,4 metros de longitud por 1,8 metros de ancho y 1,53 metros de alto.');
 INSERT INTO vehiculos (id, anio, create_at, descripcion) VALUES (4, '2020', NULL, 'Este es un versa Nissan');
 INSERT INTO vehiculos (id, anio, create_at, descripcion) VALUES (5, '2020', NULL, 'Otro Nissan');
 
-INSERT INTO clientes (id, apellidos, correo_electronico, fecha_cre, detalle, nombres, profesion, telefono_casa, telefono_movil) VALUES (1, 'Correa', 'ra.correa90@gmail.com', NULL, 'Cliente desea que le envíen el catálogo del vehículo de su interés', 'Andrés', 'Ingeniero', '072721817', '0986245602');
+INSERT INTO clientes (id, apellidos, correo_electronico, fecha_cre, detalle, nombres, profesion, telefono_casa, telefono_movil) VALUES (1, 'Juan', 'juan@gmail.com', NULL, 'Cliente desea que le envíen la ficha del vehículo chevrolet', 'Paredes', 'Contador', '2123007', '0851354659');
+INSERT INTO clientes (id, apellidos, correo_electronico, fecha_cre, detalle, nombres, profesion, telefono_casa, telefono_movil) VALUES (2, 'Mario', 'mario@gmail.com', NULL, 'Cliente desea que le envíen la ficha del vehículo de mazda', 'Andrade', 'Ingeniero', '2723807', '0991354659');
+INSERT INTO clientes (id, apellidos, correo_electronico, fecha_cre, detalle, nombres, profesion, telefono_casa, telefono_movil) VALUES (3, 'Andres', 'andres@gmail.com', NULL, 'Cliente desea que le envíen la ficha del vehículo nissan', 'Roman', 'Policia', '2423008', '0981354659');
+INSERT INTO clientes (id, apellidos, correo_electronico, fecha_cre, detalle, nombres, profesion, telefono_casa, telefono_movil) VALUES (4, 'Felipe', 'felipe@gmail.com', NULL, 'Cliente desea que le envíen la ficha del vehículo de su interés', 'Arizaga', 'Medico', '2423080', '0991354659');
 
 /* INSERT INTO clientes_vehiculos (cliente_id, vehiculo_id) VALUES (1, 2), (1, 1);*/
