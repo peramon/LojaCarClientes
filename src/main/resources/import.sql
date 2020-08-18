@@ -9,9 +9,9 @@ INSERT INTO empleados (id, apellidos, create_at, nombres) VALUES (4, 'Carrión',
 INSERT INTO empleados (id, apellidos, create_at, nombres) VALUES (5, 'Ramos', NULL, 'Aranda');
 INSERT INTO empleados (id, apellidos, create_at, nombres) VALUES (6, 'Carrasco', NULL, 'Julio');
 
-INSERT INTO vehiculos (id, anio, create_at, descripcion) VALUES (1, '2020', NULL, 'Nissan es una de las marcas japonesas con más arraigo en España y cuenta con una fábrica en Barcelona en la que se producen modelos como el  Nissan e-NV200, cien por cien eléctrico. '); 
-INSERT INTO vehiculos (id, anio, create_at, descripcion) VALUES (2, '2020', NULL, 'Versátil y dinámico. Todo lo que a ti te define es parte del diseño del nuevo Chevrolet Beat: líneas vanguardistas que seducen, en cualquier color, llenando cada kilómetro de estilo.');
-INSERT INTO vehiculos (id, anio, create_at, descripcion) VALUES (3, '2020', NULL, 'El Mazda CX-30 es un SUV compacto que se ubica en la gama nipona entre el CX-3 y el CX-5. Su estética adopta el lenguaje de diseño estrenado por la cuarta generación del Mazda 3. Mide 4,4 metros de longitud por 1,8 metros de ancho y 1,53 metros de alto.');
+INSERT INTO vehiculos (id, anio, create_at, descripcion) VALUES (1, '2020', NULL, 'Nissan '); 
+INSERT INTO vehiculos (id, anio, create_at, descripcion) VALUES (2, '2020', NULL, 'Chevrolte, versatil y dinámico');
+INSERT INTO vehiculos (id, anio, create_at, descripcion) VALUES (3, '2020', NULL, 'El Mazda CX-30');
 INSERT INTO vehiculos (id, anio, create_at, descripcion) VALUES (4, '2020', NULL, 'Este es un versa Nissan');
 INSERT INTO vehiculos (id, anio, create_at, descripcion) VALUES (5, '2020', NULL, 'Otro Nissan');
 
