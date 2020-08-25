@@ -10,9 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-
+import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -36,9 +36,9 @@ public class Cliente implements Serializable {
 	public String profesion;
 	public String detalle;
 
-	/*@OneToOne
+	@OneToOne
 	@JoinColumn(name = "empleado_id", unique = false)
-	private Empleado empleados;*/
+	private Empleado empleados;
 
 	/*@JoinTable(name = "clientes_vehiculos", 
 			joinColumns = @JoinColumn(name = "cliente_id", nullable = false), 
@@ -126,13 +126,13 @@ public class Cliente implements Serializable {
 		this.detalle = detalle;
 	}
 
-/*	public Empleado getEmpleados() {
+	public Empleado getEmpleados() {
 		return empleados;
 	}
 
 	public void setEmpleados(Empleado empleados) {
 		this.empleados = empleados;
-	}*/
+	}
 
 	/*public List<Producto> getVehiculos() {
 		return vehiculos;

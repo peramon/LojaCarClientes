@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,20 +43,29 @@ public class ClienteController {
 	
 	@GetMapping("/cliente/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public Cliente getById(Long id) {
+	public Cliente getById(@PathVariable Long id) {
 		return clienteService.findByiD(id);
 	}
 	
-	/*@PostMapping("/empleado/{id}/cliente")
+	@PostMapping("/empleado/{id}/cliente")
+	@ResponseStatus(HttpStatus.OK)
 	public Cliente save(@RequestBody Cliente clientes, @PathVariable Long id) {
 		Empleado empleado = empleadoService.findById(id);
 		clientes.setEmpleados(empleado);
 		return clienteService.save(clientes);
-	}*/
+	}
 	
 	@PostMapping("/cliente")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cliente save(@RequestBody Cliente cliente) {
 		return clienteService.save(cliente);
 	}
+	
+	@PutMapping("/cliente/{id}")
+	@ResponseStatus(HttpStatus.OK)
+	public Cliente updateCliente( @PathVariable Long id, @RequestBody Cliente cliente) {
+		return clienteService.updateCliente(id, cliente);
+	}
+	
+
 }

@@ -19,7 +19,7 @@ import com.lojacar.models.service.IVehiculoService;
 
 @RestController
 //@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
-@CrossOrigin(origins = "*",methods = {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "https://lojacar.herokuapp.com",methods = {RequestMethod.GET,RequestMethod.POST})
 @RequestMapping("/lojacar")
 public class VehiculoController {
 

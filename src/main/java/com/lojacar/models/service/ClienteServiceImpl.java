@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lojacar.models.dao.ClienteDao;
 import com.lojacar.models.entity.Cliente;
+import com.lojacar.models.entity.Empleado;
 
 @Service
 public class ClienteServiceImpl implements IClienteService {
@@ -39,6 +40,20 @@ public class ClienteServiceImpl implements IClienteService {
 	public void deleteById(Long id) {
 		// TODO Auto-generated method stub
 		clienteDao.deleteById(id);
+	}
+	
+	@Override
+	public Cliente updateCliente(Long id, Cliente cliente) {
+		Cliente clienteActual =  findByiD(id);
+		clienteActual.setNombres(cliente.getNombres());
+		clienteActual.setApellidos(cliente.getApellidos());
+		clienteActual.setTelefono_casa(cliente.getTelefono_casa());
+		clienteActual.setTelefono_movil(cliente.getTelefono_movil());
+		clienteActual.setCorreo_electronico(cliente.getCorreo_electronico());
+		clienteActual.setProfesion(cliente.getProfesion());
+		clienteActual.setDetalle(cliente.getDetalle());
+	
+		return clienteDao.save(clienteActual);
 	}
 
 }
