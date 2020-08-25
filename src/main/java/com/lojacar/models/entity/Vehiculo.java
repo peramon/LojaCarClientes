@@ -31,6 +31,7 @@ public class Vehiculo implements Serializable {
 
 	public String anio;
 	public String descripcion;
+	public Double precio;
 
 	@Column(name = "create_at")
 	@Temporal(TemporalType.DATE)
@@ -84,6 +85,16 @@ public class Vehiculo implements Serializable {
 	public void setCreateAt(Date createAt) {
 		this.createAt = createAt;
 	}
+	
+
+	public Double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Double precio) {
+		this.precio = precio;
+	}
+
 
 	/**
 	 * 

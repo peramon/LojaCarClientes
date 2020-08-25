@@ -34,6 +34,8 @@ public class Empleado implements Serializable {
 	public Long id;
 	public String nombres;
 	public String apellidos;
+	public String rol;
+	public String direccion;
 	
 	
 
@@ -97,7 +99,23 @@ public class Empleado implements Serializable {
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
+	
 
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
 
 	public Date getCreateAt() {
 		return createAt;

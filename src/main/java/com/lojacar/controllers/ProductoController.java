@@ -14,33 +14,33 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lojacar.models.entity.Vehiculo;
-import com.lojacar.models.service.VehiculoServiceInterface;
+import com.lojacar.models.entity.Producto;
+import com.lojacar.models.service.ProductoServiceInterface;
 
 @RestController
 @CrossOrigin(origins = "*",methods = {RequestMethod.GET,RequestMethod.POST})
 @RequestMapping("/lojacar")
-public class VehiculoController {
+public class ProductoController {
 
 	@Autowired
-	VehiculoServiceInterface vehiculoService;
+	ProductoServiceInterface productoService;
 	
-	@GetMapping("/vehiculos")
+	@GetMapping("/productos")
 	@ResponseStatus(HttpStatus.OK)
-	public List<Vehiculo> getAll(){
-		return vehiculoService.findAll();
+	public List<Producto> getAll(){
+		return productoService.findAll();
 	}
 	
-	@GetMapping("/vehiculo/{id}")
+	@GetMapping("/producto/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public Vehiculo getById(@PathVariable Long id) {
-		return vehiculoService.findById(id);
+	public Producto getById(@PathVariable Long id) {
+		return productoService.findById(id);
 	}
 	
-	@PostMapping("/vehiculo")
+	@PostMapping("/producto")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Vehiculo createVehiculo(@RequestBody Vehiculo vehiculos) {
-		return vehiculoService.saveVehiculo(vehiculos);
+	public Producto createProducto(@RequestBody Producto productos) {
+		return productoService.saveProducto(productos);
 	}
 	
 }

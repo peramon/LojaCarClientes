@@ -52,7 +52,6 @@ public class ClienteServiceImpl implements IClienteService {
 		clienteActual.setCorreo_electronico(cliente.getCorreo_electronico());
 		clienteActual.setProfesion(cliente.getProfesion());
 		clienteActual.setDetalle(cliente.getDetalle());
-	
 		return clienteDao.save(clienteActual);
 	}
 

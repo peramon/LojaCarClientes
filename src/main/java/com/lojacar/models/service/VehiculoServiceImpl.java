@@ -11,7 +11,7 @@ import com.lojacar.models.dao.VehiculoDao;
 import com.lojacar.models.entity.Vehiculo;
 
 @Service
-public class VehiculoServiceImpl implements IVehiculoService {
+public class VehiculoServiceImpl implements VehiculoServiceInterface {
 	
 	@Autowired
 	private VehiculoDao vehiculoDao;

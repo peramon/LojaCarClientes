@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.lojacar.models.entity.Vehiculo;
 
-public interface IVehiculoService {
+public interface VehiculoServiceInterface {
 	
 	public List<Vehiculo> findAll();
 	public Vehiculo findById(Long id);

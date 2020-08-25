@@ -19,7 +19,7 @@ import com.lojacar.models.entity.Cliente;
 import com.lojacar.models.entity.Empleado;
 import com.lojacar.models.service.IClienteService;
 import com.lojacar.models.service.IEmpleadoService;
-import com.lojacar.models.service.IVehiculoService;
+import com.lojacar.models.service.VehiculoServiceInterface;
 
 @RestController
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
@@ -33,7 +33,7 @@ public class ClienteController {
 	IEmpleadoService empleadoService;
 	
 	@Autowired
-	IVehiculoService vehiculoSerice;
+	VehiculoServiceInterface vehiculoSerice;
 	
 	@GetMapping("/clientes")
 	@ResponseStatus(HttpStatus.OK)

@@ -29,9 +29,10 @@ public class Producto implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
-
 	public Double precio;
 	public Integer cantidad;
+	// TD: Solo para pruebas este campo
+	public String nombre;
 
 	@Column(name = "fecha_cre")
 	@Temporal(TemporalType.DATE)
@@ -73,6 +74,22 @@ public class Producto implements Serializable {
 
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
+	}
+	
+	public Double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Double precio) {
+		this.precio = precio;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public Date getCreateAt() {

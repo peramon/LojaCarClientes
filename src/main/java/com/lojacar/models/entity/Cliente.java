@@ -33,8 +33,10 @@ public class Cliente implements Serializable {
 	public String telefono_casa;
 	public String telefono_movil;
 	public String correo_electronico;
+	public String direccion;
 	public String profesion;
 	public String detalle;
+	
 
 	@OneToOne
 	@JoinColumn(name = "empleado_id", unique = false)
@@ -108,6 +110,15 @@ public class Cliente implements Serializable {
 
 	public void setCorreo_electronico(String correo_electronico) {
 		this.correo_electronico = correo_electronico;
+	}
+
+	
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 
 	public String getProfesion() {
