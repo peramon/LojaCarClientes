@@ -27,4 +27,9 @@ INSERT INTO productos (id, precio, cantidad, nombre, fecha_cre) VALUES (3, '10.5
 INSERT INTO productos (id, precio, cantidad, nombre, fecha_cre) VALUES (4, '520.00', 2, 'Tableros', NULL);
 INSERT INTO productos (id, precio, cantidad, nombre, fecha_cre) VALUES (5, '100.00', 24, 'Lunas traseras', NULL);
 
+INSERT INTO actividades (id, detalle, fecha_asignacion, fecha_limite) VALUES (1,'Mantenimiento del vehiculo chevrolet','2020-08-26','2020-08-30');
+INSERT INTO actividades (id, detalle, fecha_asignacion, fecha_limite) VALUES (2,'Mantenimiento del vehiculo nissan','2020-08-26','2020-08-29');
+INSERT INTO actividades (id, detalle, fecha_asignacion, fecha_limite) VALUES (3,'Contactar con el cliente interesado en el vehiculo chevrolet','2020-08-26','2020-08-28');
+
+
 /* INSERT INTO clientes_vehiculos (cliente_id, vehiculo_id) VALUES (1, 2), (1, 1);*/

@@ -27,20 +27,22 @@ public class Actividad implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
-	public String nombre;
-
-
-	@Column(name = "fecha_cre")
+	public String detalle;
+	
+	@Column(name = "fecha_asignacion")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date fecha_cre;
+	private Date fecha_asignacion;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date fecha_limite;
 		
 	@ManyToMany(mappedBy = "Actividad")
     private Set<Empleado> Empleado;
 	
 	@PrePersist
 	public void prePersist() {
-		fecha_cre = new Date();
+		fecha_asignacion = new Date();
 	}
 
 	public Long getId() {
@@ -51,20 +53,29 @@ public class Actividad implements Serializable {
 		this.id = id;
 	}
 
-	public String getNombres() {
-		return nombre;
+	
+	public String getDetalle() {
+		return detalle;
 	}
 
-	public void setNombres(String nombres) {
-		this.nombre = nombres;
+	public void setDetalle(String detalle) {
+		this.detalle = detalle;
 	}
 
 	public Date getCreateAt() {
-		return fecha_cre;
+		return fecha_asignacion;
 	}
 
 	public void setCreateAt(Date createAt) {
-		this.fecha_cre = createAt;
+		this.fecha_asignacion = createAt;
+	}
+	
+	public Date getFecha_limite() {
+		return fecha_limite;
+	}
+
+	public void setFecha_limite(Date fecha_limite) {
+		this.fecha_limite = fecha_limite;
 	}
 
 	public static long getSerialversionuid() {
