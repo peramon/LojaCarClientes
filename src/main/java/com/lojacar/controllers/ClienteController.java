@@ -1,9 +1,15 @@
 package com.lojacar.controllers;
 
+
 import java.util.List;
 
+import javax.websocket.server.PathParam;
+import javax.xml.ws.Response;
+
+import org.apache.tomcat.util.http.parser.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +26,8 @@ import com.lojacar.models.entity.Empleado;
 import com.lojacar.models.service.IClienteService;
 import com.lojacar.models.service.IEmpleadoService;
 import com.lojacar.models.service.VehiculoServiceInterface;
+
+import dto.CitaDTO;
 
 @RestController
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
@@ -55,6 +63,8 @@ public class ClienteController {
 		return clienteService.save(clientes);
 	}
 	
+
+	
 	@PostMapping("/cliente")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cliente save(@RequestBody Cliente cliente) {
@@ -66,6 +76,10 @@ public class ClienteController {
 	public Cliente updateCliente( @PathVariable Long id, @RequestBody Cliente cliente) {
 		return clienteService.updateCliente(id, cliente);
 	}
+	
+
+	
+	
 	
 
 }

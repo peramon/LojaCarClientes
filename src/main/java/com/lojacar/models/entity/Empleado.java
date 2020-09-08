@@ -34,7 +34,9 @@ public class Empleado implements Serializable {
 	public Long id;
 	public String nombres;
 	public String apellidos;
-	public String rol;
+	public String correo;
+	public String telefono;
+	
 	public String direccion;
 	
 	
@@ -100,13 +102,22 @@ public class Empleado implements Serializable {
 		this.apellidos = apellidos;
 	}
 	
+	
 
-	public String getRol() {
-		return rol;
+	public String getCorreo() {
+		return correo;
 	}
 
-	public void setRol(String rol) {
-		this.rol = rol;
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 
 	public String getDireccion() {

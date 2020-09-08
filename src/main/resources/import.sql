@@ -2,12 +2,12 @@
 --INSERT INTO usuarios (nombre, apellido) VALUES('Daniel', 'Gaona');
 --INSERT INTO usuarios (nombre, apellido) VALUES('Juan', 'Gaona');
 
-INSERT INTO empleados (id, apellidos, create_at, nombres, rol, direccion) VALUES (1, 'Jaramillo', NULL, 'Pedro', 'Asesor','Loja - La Pradera');
-INSERT INTO empleados (id, apellidos, create_at, nombres, rol, direccion) VALUES (2, 'Valarezo', NULL, 'Valeria', 'Asesor','Loja - San Sebastian');
-INSERT INTO empleados (id, apellidos, create_at, nombres, rol, direccion) VALUES (3, 'Rodriguez', NULL, 'José', 'Mantenimiento','Loja - Sacuces Norte');
-INSERT INTO empleados (id, apellidos, create_at, nombres, rol, direccion) VALUES (4, 'Carrión', NULL, 'Fernando', 'Asesor','Loja - San Sebastian');
-INSERT INTO empleados (id, apellidos, create_at, nombres, rol, direccion) VALUES (5, 'Ramos', NULL, 'Aranda', 'Manenimiento','Loja - Esteba Godoy');
-INSERT INTO empleados (id, apellidos, create_at, nombres, rol, direccion) VALUES (6, 'Carrasco', NULL, 'Julio', 'Asesor','Loja - San Sebastian');
+INSERT INTO empleados (id, apellidos, create_at, nombres, correo, telefono, direccion) VALUES (1, 'Jaramillo', NULL, 'Pedro', '@example.com', '0995067803','Loja - La Pradera');
+INSERT INTO empleados (id, apellidos, create_at, nombres, correo, telefono, direccion) VALUES (2, 'Valarezo', NULL, 'Valeria', '@example.com', '0995067803', 'Loja - San Sebastian');
+INSERT INTO empleados (id, apellidos, create_at, nombres, correo, telefono, direccion) VALUES (3, 'Rodriguez', NULL, 'José', '@example.com', '0995067803', 'Loja - Sacuces Norte');
+INSERT INTO empleados (id, apellidos, create_at, nombres, correo, telefono, direccion) VALUES (4, 'Carrión', NULL, 'Fernando', '@example.com', '0995067803', 'Loja - San Sebastian');
+INSERT INTO empleados (id, apellidos, create_at, nombres, correo, telefono, direccion) VALUES (5, 'Ramos', NULL, 'Aranda', '@example.com', '0995067803', 'Loja - Esteba Godoy');
+INSERT INTO empleados (id, apellidos, create_at, nombres, correo, telefono, direccion) VALUES (6, 'Carrasco', NULL, 'Julio', '@example.com', '0995067803', 'Loja - San Sebastian');
 
 INSERT INTO vehiculos (id, anio, create_at, descripcion, precio) VALUES (1, '2020', NULL, 'Nissan ','8012.00'); 
 INSERT INTO vehiculos (id, anio, create_at, descripcion, precio) VALUES (2, '2020', NULL, 'Chevrolte, versatil y dinámico','9012.00');
@@ -31,5 +31,7 @@ INSERT INTO actividades (id, detalle, fecha_asignacion, fecha_limite) VALUES (1,
 INSERT INTO actividades (id, detalle, fecha_asignacion, fecha_limite) VALUES (2,'Mantenimiento del vehiculo nissan','2020-08-26','2020-08-29');
 INSERT INTO actividades (id, detalle, fecha_asignacion, fecha_limite) VALUES (3,'Contactar con el cliente interesado en el vehiculo chevrolet','2020-08-26','2020-08-28');
 
+INSERT INTO seguimientos (id, descripcion, fecha_atencion, fecha_inicio, id_cliente, id_empleado) VALUES (1, 'Reunion para ver el chevrolet', '2020-08-19', '2020-08-17', 1, 1);
+INSERT INTO seguimientos (id, descripcion, fecha_atencion, fecha_inicio, id_cliente, id_empleado) VALUES (2, 'Reunion para ver el chevrolet', '2020-08-19 10:30', '2020-08-17', 2, 1);
 
 /* INSERT INTO clientes_vehiculos (cliente_id, vehiculo_id) VALUES (1, 2), (1, 1);*/

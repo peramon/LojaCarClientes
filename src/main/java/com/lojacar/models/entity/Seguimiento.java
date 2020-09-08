@@ -27,7 +27,11 @@ public class Seguimiento implements Serializable {
 	public Long id;
 	public String descripcion;
 	public String prioridad;
-	public Date fecha_atencion;
+	
+	@Column(name = "fecha_atencion")
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date fecha_atencion;
 	
 
 	@Column(name = "fecha_inicio")
@@ -82,6 +86,16 @@ public class Seguimiento implements Serializable {
 
 	public void setCreateAt(Date createAt) {
 		this.fecha_inicio = createAt;
+	}
+	
+
+
+	public Date getFecha_atencion() {
+		return fecha_atencion;
+	}
+
+	public void setFecha_atencion(Date fecha_atencion) {
+		this.fecha_atencion = fecha_atencion;
 	}
 
 	public static long getSerialversionuid() {
