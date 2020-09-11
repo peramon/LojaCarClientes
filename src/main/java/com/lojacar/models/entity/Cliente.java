@@ -36,6 +36,7 @@ public class Cliente implements Serializable {
 	public String direccion;
 	public String profesion;
 	public String detalle;
+	public boolean contactenme;
 	
 
 	@OneToOne
@@ -144,6 +145,8 @@ public class Cliente implements Serializable {
 	public void setEmpleados(Empleado empleados) {
 		this.empleados = empleados;
 	}
+	
+	
 
 	/*public List<Producto> getVehiculos() {
 		return vehiculos;
@@ -153,6 +156,7 @@ public class Cliente implements Serializable {
 		this.vehiculos = vehiculos;
 	}*/
 
+
 	public Date getCreateAt() {
 		return fecha_cre;
 	}
@@ -160,6 +164,16 @@ public class Cliente implements Serializable {
 	public void setCreateAt(Date createAt) {
 		this.fecha_cre = createAt;
 	}
+
+	public boolean isContactenme() {
+		return contactenme;
+	}
+
+	public void setContactenme(boolean contactenme) {
+		this.contactenme = contactenme;
+	}
+
+
 
 	/**
 	 * 

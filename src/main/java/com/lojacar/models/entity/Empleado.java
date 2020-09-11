@@ -32,11 +32,11 @@ public class Empleado implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
+	public String cedula;
 	public String nombres;
 	public String apellidos;
 	public String correo;
 	public String telefono;
-	
 	public String direccion;
 	
 	
@@ -84,6 +84,15 @@ public class Empleado implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+
+	public String getCedula() {
+		return cedula;
+	}
+
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
 	}
 
 	public String getNombres() {
@@ -134,6 +143,16 @@ public class Empleado implements Serializable {
 
 	public void setCreateAt(Date createAt) {
 		this.createAt = createAt;
+	}
+	
+	
+
+	public Set<Actividad> getActividad() {
+		return Actividad;
+	}
+
+	public void setActividad(Set<Actividad> actividad) {
+		Actividad = actividad;
 	}
 
 	public static long getSerialversionuid() {

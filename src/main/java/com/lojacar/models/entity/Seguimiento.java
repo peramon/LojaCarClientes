@@ -18,6 +18,8 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "seguimientos")
 public class Seguimiento implements Serializable {
@@ -41,10 +43,12 @@ public class Seguimiento implements Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idCliente")
+	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
 	private Cliente clienteS;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idEmpleado")
+	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
 	private Empleado empleadoS;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -97,6 +101,17 @@ public class Seguimiento implements Serializable {
 	public void setFecha_atencion(Date fecha_atencion) {
 		this.fecha_atencion = fecha_atencion;
 	}
+	
+
+	public Empleado getEmpleadoS() {
+		return empleadoS;
+	}
+
+	public void setEmpleadoS(Empleado empleadoS) {
+		this.empleadoS = empleadoS;
+	}
+	
+	
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;

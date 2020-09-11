@@ -21,6 +21,8 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "vehiculos")
 public class Vehiculo implements Serializable {
@@ -28,7 +30,8 @@ public class Vehiculo implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
-
+	//public String nombre;
+	//public String marca;
 	public String anio;
 	public String descripcion;
 	public Double precio;
@@ -43,6 +46,7 @@ public class Vehiculo implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idModelo")
+	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
 	private Modelo modelo;
 	
 	
@@ -94,6 +98,16 @@ public class Vehiculo implements Serializable {
 	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
+	
+	public Modelo getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(Modelo modelo) {
+		this.modelo = modelo;
+	}
+
+
 
 
 	/**

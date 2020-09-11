@@ -28,9 +28,9 @@ public class Modelo implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
+	public String nombre;
 	public String modelo;
-
-
+	
 	@Column(name = "create_at")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -55,8 +55,15 @@ public class Modelo implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 	public String getModelo() {
 		return modelo;
 	}
