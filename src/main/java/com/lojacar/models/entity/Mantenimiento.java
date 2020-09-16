@@ -26,15 +26,19 @@ public class Mantenimiento implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
 	public String descripcion;
-	public Date fecha_mantenimiento;
-	public Date fecha_devolucion;
 	public Double costo;
 
-	@Column(name = "create_at")
-	@Temporal(TemporalType.DATE)
+	@Column(name = "fecha_inicio")
+	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date createAt;
+	private Date fecha_inicio;
 
+	
+	@Column(name = "fecha_mantenimiento")
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date fecha_mantenimiento;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idEmpleado")
 	private Empleado empleadoM;
@@ -46,7 +50,7 @@ public class Mantenimiento implements Serializable {
 	
 	@PrePersist
 	public void prePersist() {
-		createAt = new Date();
+		fecha_inicio = new Date();
 	}
 
 	public Long getId() {
@@ -57,29 +61,55 @@ public class Mantenimiento implements Serializable {
 		this.id = id;
 	}
 
-	public Date getFecha_dev() {
-		return fecha_mantenimiento;
+	public String getDescripcion() {
+		return descripcion;
 	}
 
-	public void setFecha_dev(Date fecha_dev) {
-		this.fecha_mantenimiento = fecha_dev;
-	}
-	
-
-	public Date getFecha_devolucion() {
-		return fecha_devolucion;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
-	public void setFecha_devolucion(Date fecha_devolucion) {
-		this.fecha_devolucion = fecha_devolucion;
+	public Double getCosto() {
+		return costo;
+	}
+
+	public void setCosto(Double costo) {
+		this.costo = costo;
 	}
 
 	public Date getCreateAt() {
-		return createAt;
+		return fecha_inicio;
 	}
 
-	public void setCreateAt(Date createAt) {
-		this.createAt = createAt;
+	public void setCreateAt(Date fecha_inicio) {
+		this.fecha_inicio = fecha_inicio;
+	}
+
+	
+	public Date getFecha_mantenimiento() {
+		return fecha_mantenimiento;
+	}
+
+	public void setFecha_mantenimiento(Date fecha_mantenimiento) {
+		this.fecha_mantenimiento = fecha_mantenimiento;
+	}
+
+	
+	
+	public Empleado getEmpleadoM() {
+		return empleadoM;
+	}
+
+	public void setEmpleadoM(Empleado empleadoM) {
+		this.empleadoM = empleadoM;
+	}
+
+	public Vehiculo getVehiculo() {
+		return vehiculo;
+	}
+
+	public void setVehiculo(Vehiculo vehiculo) {
+		this.vehiculo = vehiculo;
 	}
 
 	public static long getSerialversionuid() {

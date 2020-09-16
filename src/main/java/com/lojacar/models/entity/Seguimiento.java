@@ -2,7 +2,9 @@ package com.lojacar.models.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -54,6 +57,13 @@ public class Seguimiento implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idTipoSeguimiento")
 	private TipoSeguimiento tipoSeguimiento;
+	
+
+	
+	@OneToMany(mappedBy = "vehiculoSeguimiento", cascade = CascadeType.ALL)
+	private List<Vehiculo> SeguimientoVehiculo;
+
+	
 	
 	@PrePersist
 	public void prePersist() {
@@ -112,6 +122,14 @@ public class Seguimiento implements Serializable {
 	}
 	
 	
+
+	public List<Vehiculo> getSeguimientoVehiculo() {
+		return SeguimientoVehiculo;
+	}
+
+	public void setSeguimientoVehiculo(List<Vehiculo> seguimientoVehiculo) {
+		SeguimientoVehiculo = seguimientoVehiculo;
+	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;

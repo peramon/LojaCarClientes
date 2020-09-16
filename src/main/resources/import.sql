@@ -2,16 +2,22 @@
 --INSERT INTO usuarios (nombre, apellido) VALUES('Daniel', 'Gaona');
 --INSERT INTO usuarios (nombre, apellido) VALUES('Juan', 'Gaona');
 
-INSERT INTO empleados (id, cedula, apellidos, create_at, nombres, correo, telefono, direccion) VALUES (1, '1234567890','Jaramillo', NULL, 'Pedro', '@example.com1', '0995067803','Loja - La Pradera');
-INSERT INTO empleados (id, cedula, apellidos, create_at, nombres, correo, telefono, direccion) VALUES (2, '1234567899', 'Valarezo', NULL, 'Valeria', '@example.com2', '0995067803', 'Loja - San Sebastian');
+INSERT INTO credenciales(id, pass, usuario) VALUES(1,'12345678','ramon9124');
+INSERT INTO credenciales(id, pass, usuario) VALUES(2,'abcdefgh','jaramillo7890');
+INSERT INTO credenciales(id, pass, usuario) VALUES(3,'12345abc','valarezo7899');
+
+INSERT INTO gerentes(id, cedula, apellidos, create_at, nombres, correo, telefono, direccion, id_credencial) VALUES (1, '1900849124','Ramon', NULL, 'Paul', 'peramon@example.com1', '0995067803','Zamora',1);
+
+INSERT INTO empleados (id, cedula, apellidos, create_at, nombres, correo, telefono, direccion, id_credencial) VALUES (1, '1234567890','Jaramillo', NULL, 'Pedro', '@example.com1', '0995067803','Loja - La Pradera',2);
+INSERT INTO empleados (id, cedula, apellidos, create_at, nombres, correo, telefono, direccion, id_credencial) VALUES (2, '1234567899', 'Valarezo', NULL, 'Valeria', '@example.com2', '0995067803', 'Loja - San Sebastian',3);
 INSERT INTO empleados (id, apellidos, create_at, nombres, correo, telefono, direccion) VALUES (3, 'Rodriguez', NULL, 'José', '@example.com3', '0995067803', 'Loja - Sacuces Norte');
 INSERT INTO empleados (id, apellidos, create_at, nombres, correo, telefono, direccion) VALUES (4, 'Carrión', NULL, 'Fernando', '@example.com4', '0995067803', 'Loja - San Sebastian');
 INSERT INTO empleados (id, apellidos, create_at, nombres, correo, telefono, direccion) VALUES (5, 'Ramos', NULL, 'Aranda', '@example.com5', '0995067803', 'Loja - Esteba Godoy');
 INSERT INTO empleados (id, apellidos, create_at, nombres, correo, telefono, direccion) VALUES (6, 'Carrasco', NULL, 'Julio', '@example.com6', '0995067803', 'Loja - San Sebastian');
 
-INSERT INTO modelos (id, nombre, modelo) VALUES (1, 'CHEVROLET', 'SPARK GT');
-INSERT INTO modelos (id, nombre, modelo) VALUES (2, 'NISSAN', 'SPARK GT');
-INSERT INTO modelos (id, nombre, modelo) VALUES (3, 'CHEVROLET', 'BEAT');
+INSERT INTO modelos (id,  modelo) VALUES (1, 'SPARK GT');
+INSERT INTO modelos (id,  modelo) VALUES (2, 'SPARK GT');
+INSERT INTO modelos (id,  modelo) VALUES (3, 'BEAT');
 
 INSERT INTO vehiculos (id, anio, create_at, descripcion, precio, id_modelo) VALUES (1, '2020', NULL, 'Nissan para pasear con toda la familia','8012.00', 2); 
 INSERT INTO vehiculos (id, anio, create_at, descripcion, precio, id_modelo) VALUES (2, '2020', NULL, 'Chevrolte, versatil y dinámico','9012.00', 1);
@@ -42,5 +48,12 @@ INSERT INTO empleados_actividad (empleado_id, actividad_id) VALUES (1, 3);
 INSERT INTO empleados_actividad (empleado_id, actividad_id) VALUES (2, 2);
 INSERT INTO empleados_actividad (empleado_id, actividad_id) VALUES (3, 1);
 INSERT INTO empleados_actividad (empleado_id, actividad_id) VALUES (4, 1);
+
+INSERT INTO gerentes_empleados (gerente_id, empleados_id) VALUES (1, 1);
+INSERT INTO gerentes_empleados (gerente_id, empleados_id) VALUES (1, 2);
+INSERT INTO gerentes_empleados (gerente_id, empleados_id) VALUES (1, 3);
+INSERT INTO gerentes_empleados (gerente_id, empleados_id) VALUES (1, 4);
+INSERT INTO gerentes_empleados (gerente_id, empleados_id) VALUES (1, 5);
+INSERT INTO gerentes_empleados (gerente_id, empleados_id) VALUES (1, 6);
 
 /* INSERT INTO clientes_vehiculos (cliente_id, vehiculo_id) VALUES (1, 2), (1, 1);*/

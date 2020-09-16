@@ -53,6 +53,10 @@ public class Vehiculo implements Serializable {
 	@OneToMany(mappedBy = "vehiculo", cascade = CascadeType.ALL)
 	private List<Producto> 	vehiculosList;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idSeguimiento")
+	private Vehiculo vehiculoSeguimiento;
+	
 	@PrePersist
 	public void prePersist() {
 		createAt = new Date();
@@ -106,7 +110,6 @@ public class Vehiculo implements Serializable {
 	public void setModelo(Modelo modelo) {
 		this.modelo = modelo;
 	}
-
 
 
 

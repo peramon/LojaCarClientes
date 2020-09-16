@@ -40,6 +40,8 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 		Empleado empleadoActual =  findById(id);
 		empleadoActual.setApellidos(empleado.getApellidos());
 		empleadoActual.setNombres(empleado.getNombres());
+		empleadoActual.setCorreo(empleado.getCorreo());
+		empleadoActual.setDireccion(empleado.getDireccion());
 		return empleadoDao.save(empleadoActual);
 	}
 	

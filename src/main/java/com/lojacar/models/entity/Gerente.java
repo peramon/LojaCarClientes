@@ -4,20 +4,16 @@ package com.lojacar.models.entity;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
@@ -27,8 +23,8 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "empleados")
-public class Empleado implements Serializable {
+@Table(name = "gerentes")
+public class Gerente implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,8 +36,6 @@ public class Empleado implements Serializable {
 	public String telefono;
 	public String direccion;
 	
-	
-
 	@Column(name = "create_at")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -49,32 +43,12 @@ public class Empleado implements Serializable {
 
 	@OneToOne
 	@JoinColumn(name = "idCredencial")
-	private Credencial credencialEmpleado;
+	private Credencial credencialGerente;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idRolEmpleado")
-	private RolEmpleado rolEmpleado;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idArea")
-	private Area areaEmpleado;
-	
-	@OneToMany(mappedBy = "empleadoM", cascade = CascadeType.ALL)
-	private List<Mantenimiento> empleadoMList;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
     @JoinTable
-    private Set<Pedido> Pedido;
-	
-	@ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable
-    private List<Actividad> Actividad;
-	
-	@ManyToMany(mappedBy = "Empleados")
-    private Set<Gerente> Gerente;
-	
-	@OneToMany(mappedBy = "empleadoS", cascade = CascadeType.ALL)
-	private List<Seguimiento> empleadoSList;
+    private List<Empleado> Empleados;
 	
 	@PrePersist
 	public void prePersist() {
@@ -114,8 +88,6 @@ public class Empleado implements Serializable {
 		this.apellidos = apellidos;
 	}
 	
-	
-
 	public String getCorreo() {
 		return correo;
 	}
@@ -148,28 +120,21 @@ public class Empleado implements Serializable {
 		this.createAt = createAt;
 	}
 	
-	public Credencial getCredencialEmpleado() {
-		return credencialEmpleado;
+	public Credencial getCredencialGerente() {
+		return credencialGerente;
 	}
 
-	public void setCredencialEmpleado(Credencial credencialEmpleado) {
-		this.credencialEmpleado = credencialEmpleado;
+	public void setCredencialGerente(Credencial credencialGerente) {
+		this.credencialGerente = credencialGerente;
+	}
+	
+
+	public List<Empleado> getEmpleados() {
+		return Empleados;
 	}
 
-	public RolEmpleado getRolEmpleado() {
-		return rolEmpleado;
-	}
-
-	public void setRolEmpleado(RolEmpleado rolEmpleado) {
-		this.rolEmpleado = rolEmpleado;
-	}
-
-	public List<Actividad> getActividad() {
-		return Actividad;
-	}
-
-	public void setActividad(List<Actividad> actividad) {
-		Actividad = actividad;
+	public void setEmpleados(List<Empleado> empleados) {
+		Empleados = empleados;
 	}
 
 	public static long getSerialversionuid() {
