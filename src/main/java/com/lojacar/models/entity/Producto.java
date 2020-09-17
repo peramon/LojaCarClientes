@@ -22,6 +22,8 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "productos")
 public class Producto implements Serializable {
@@ -32,7 +34,7 @@ public class Producto implements Serializable {
 	public Double precio;
 	public Integer cantidad;
 	// TD: Solo para pruebas este campo
-	public String nombre;
+	// public String nombre;
 
 	@Column(name = "fecha_cre")
 	@Temporal(TemporalType.DATE)
@@ -45,6 +47,7 @@ public class Producto implements Serializable {
 	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
 	@JoinColumn(name = "idAccesorio")
 	private Accesorio accesorio;
 	
@@ -54,6 +57,11 @@ public class Producto implements Serializable {
 	
 	@OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
 	private List<Pedido> 	productoList;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idCliente")
+	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+	private Cliente clienteProducto;
 	
 	@PrePersist
 	public void prePersist() {
@@ -84,13 +92,13 @@ public class Producto implements Serializable {
 		this.precio = precio;
 	}
 
-	public String getNombre() {
+	/*public String getNombre() {
 		return nombre;
 	}
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
+	}*/
 
 	public Date getCreateAt() {
 		return fecha_cre;
@@ -99,6 +107,34 @@ public class Producto implements Serializable {
 	public void setCreateAt(Date createAt) {
 		this.fecha_cre = createAt;
 	}
+	
+	
+
+	public Vehiculo getVehiculo() {
+		return vehiculo;
+	}
+
+	public void setVehiculo(Vehiculo vehiculo) {
+		this.vehiculo = vehiculo;
+	}
+
+	public Accesorio getAccesorio() {
+		return accesorio;
+	}
+
+	public void setAccesorio(Accesorio accesorio) {
+		this.accesorio = accesorio;
+	}
+
+	public Consecionario getConsecionarioPro() {
+		return consecionarioPro;
+	}
+
+	public void setConsecionarioPro(Consecionario consecionarioPro) {
+		this.consecionarioPro = consecionarioPro;
+	}
+
+
 
 	/**
 	 * 

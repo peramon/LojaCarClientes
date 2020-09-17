@@ -21,6 +21,8 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "modelos")
 public class Modelo implements Serializable {
@@ -39,6 +41,7 @@ public class Modelo implements Serializable {
 	private List<Vehiculo> modeloList;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
 	@JoinColumn(name = "idMarca")
 	private Marca marca;
 	

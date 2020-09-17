@@ -47,7 +47,6 @@ public class Pedido  implements Serializable {
     private Set<Empleado> Empleado;
 
 	
-	
 	@OneToOne
 	@JoinColumn(name = "idEstadoPedido")
 	private EstadoPedido estadoPedido;

@@ -15,9 +15,12 @@ INSERT INTO empleados (id, apellidos, create_at, nombres, correo, telefono, dire
 INSERT INTO empleados (id, apellidos, create_at, nombres, correo, telefono, direccion) VALUES (5, 'Ramos', NULL, 'Aranda', '@example.com5', '0995067803', 'Loja - Esteba Godoy');
 INSERT INTO empleados (id, apellidos, create_at, nombres, correo, telefono, direccion) VALUES (6, 'Carrasco', NULL, 'Julio', '@example.com6', '0995067803', 'Loja - San Sebastian');
 
-INSERT INTO modelos (id,  modelo) VALUES (1, 'SPARK GT');
-INSERT INTO modelos (id,  modelo) VALUES (2, 'SPARK GT');
-INSERT INTO modelos (id,  modelo) VALUES (3, 'BEAT');
+INSERT INTO marcas(id,  marca) VALUES (1, 'CHEVROLET');
+INSERT INTO marcas(id,  marca) VALUES (2, 'NISSAN');
+
+INSERT INTO modelos (id,  modelo, id_marca) VALUES (1, 'JUKE',2);
+INSERT INTO modelos (id,  modelo, id_marca) VALUES (2, 'SPARK GT',1);
+INSERT INTO modelos (id,  modelo, id_marca) VALUES (3, 'BEAT',2);
 
 INSERT INTO vehiculos (id, anio, create_at, descripcion, precio, id_modelo) VALUES (1, '2020', NULL, 'Nissan para pasear con toda la familia','8012.00', 2); 
 INSERT INTO vehiculos (id, anio, create_at, descripcion, precio, id_modelo) VALUES (2, '2020', NULL, 'Chevrolte, versatil y dinámico','9012.00', 1);
@@ -30,12 +33,18 @@ INSERT INTO clientes (id, apellidos, correo_electronico, fecha_cre, detalle, nom
 INSERT INTO clientes (id, apellidos, correo_electronico, fecha_cre, detalle, nombres, direccion, profesion, telefono_casa, telefono_movil, contactenme, empleado_id) VALUES (3, 'Andres', 'andres@gmail.com', NULL, 'Cliente desea que le envíen la ficha del vehículo nissan', 'Roman', 'Catamayo', 'Policia', '2423008', '0981354659', false,1);
 INSERT INTO clientes (id, apellidos, correo_electronico, fecha_cre, detalle, nombres, direccion, profesion, telefono_casa, telefono_movil, contactenme, empleado_id) VALUES (4, 'Felipe', 'felipe@gmail.com', NULL, 'Cliente desea que le envíen la ficha del vehículo de su interés', 'Andrade', 'Loja', 'Medico', '2423080', '0991354659', false,2);
 
+INSERT INTO accesorios (id, nombre, modelo,  fecha_cre) VALUES (1, 'Llantas', 'Bridgstone','2020-09-18');
+INSERT INTO accesorios (id, nombre, modelo,  fecha_cre) VALUES (2, 'Amortiguadores', 'Golden Bear','2020-09-18');
+INSERT INTO accesorios (id, nombre, modelo,  fecha_cre) VALUES (3, 'Aceite', 'Valvoline','2020-09-18');
+INSERT INTO accesorios (id, nombre, modelo,  fecha_cre) VALUES (4, 'Tableros', 'Kia','2020-09-18');
+INSERT INTO accesorios (id, nombre, modelo,  fecha_cre) VALUES (5, 'Lunas traseras', 'Nissan','2020-09-18');
 
-INSERT INTO productos (id, precio, cantidad, nombre, fecha_cre) VALUES (1, '50.00', 12, 'Llantas', NULL);
-INSERT INTO productos (id, precio, cantidad, nombre, fecha_cre) VALUES (2, '90.00', 10, 'Amortiguadores', NULL);
-INSERT INTO productos (id, precio, cantidad, nombre, fecha_cre) VALUES (3, '10.50', 15, 'Aceite', NULL);
-INSERT INTO productos (id, precio, cantidad, nombre, fecha_cre) VALUES (4, '520.00', 2, 'Tableros', NULL);
-INSERT INTO productos (id, precio, cantidad, nombre, fecha_cre) VALUES (5, '100.00', 24, 'Lunas traseras', NULL);
+
+INSERT INTO productos (id, precio, cantidad,  fecha_cre, id_accesorio) VALUES (1, '50.00', 12, NULL,1);
+INSERT INTO productos (id, precio, cantidad,  fecha_cre, id_accesorio) VALUES (2, '90.00', 10, NULL,2);
+INSERT INTO productos (id, precio, cantidad,  fecha_cre, id_accesorio) VALUES (3, '10.50', 15, NULL,3);
+INSERT INTO productos (id, precio, cantidad,  fecha_cre, id_accesorio) VALUES (4, '520.00', 2, NULL,4);
+INSERT INTO productos (id, precio, cantidad,  fecha_cre, id_accesorio) VALUES (5, '100.00', 24, NULL,5);
 
 INSERT INTO actividades (id, detalle, fecha_asignacion, fecha_limite) VALUES (1,'Contactar con el cliente interesado en el nissan','2020-08-26','2020-08-30');
 INSERT INTO actividades (id, detalle, fecha_asignacion, fecha_limite) VALUES (2,'Contactar con el cliente interesado en el mazda','2020-08-26','2020-08-29');

@@ -55,13 +55,13 @@ public class ClienteController {
 		return clienteService.findByiD(id);
 	}
 	
-	@PostMapping("/empleado/{id}/cliente")
+	/*@PostMapping("/empleado/{id}/cliente")
 	@ResponseStatus(HttpStatus.OK)
 	public Cliente save(@RequestBody Cliente clientes, @PathVariable Long id) {
 		Empleado empleado = empleadoService.findById(id);
 		clientes.setEmpleados(empleado);
 		return clienteService.save(clientes);
-	}
+	}*/
 	
 
 	

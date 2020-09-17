@@ -59,7 +59,10 @@ public class Cliente implements Serializable {
 	
 	@OneToMany(mappedBy = "clienteS", cascade = CascadeType.ALL)
 	private List<Seguimiento> clienteSList;
-
+	
+	@OneToMany(mappedBy = "clienteProducto", cascade = CascadeType.ALL)
+	private List<Producto> clienteProductoList;
+	
 	@PrePersist
 	public void prePersist() {
 		fecha_cre = new Date();
@@ -138,14 +141,14 @@ public class Cliente implements Serializable {
 		this.detalle = detalle;
 	}
 
-	public Empleado getEmpleados() {
+	/*public Empleado getEmpleados() {
 		return empleados;
 	}
 
 	public void setEmpleados(Empleado empleados) {
 		this.empleados = empleados;
 	}
-	
+	*/
 	
 
 	/*public List<Producto> getVehiculos() {
@@ -172,6 +175,26 @@ public class Cliente implements Serializable {
 	public void setContactenme(boolean contactenme) {
 		this.contactenme = contactenme;
 	}
+
+
+	public List<Seguimiento> getClienteSList() {
+		return clienteSList;
+	}
+
+	public void setClienteSList(List<Seguimiento> clienteSList) {
+		this.clienteSList = clienteSList;
+	}
+	
+	
+	public List<Producto> getClienteProductoList() {
+		return clienteProductoList;
+	}
+
+	public void setClienteProductoList(List<Producto> clienteProductoList) {
+		this.clienteProductoList = clienteProductoList;
+	}
+
+
 
 
 
